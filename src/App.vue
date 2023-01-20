@@ -6,12 +6,13 @@
 
 <script>
 // import axios from 'axios'
-// import jsonp from 'jsonp'
+import jsonp from 'jsonp'
 
 export default {
   name: 'App',
   components: {
   },
+
   data() {
     return {
       data:''
