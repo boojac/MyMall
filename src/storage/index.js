@@ -1,6 +1,6 @@
 // storage封装
 const STORAGE_KEY = 'mall';
-export default {
+export default{
     setItem(key, value, module_name){
         if (module_name) {
             let val = this.getItem(module_name);
@@ -34,6 +34,6 @@ export default {
         }else {
             delete val[key];
         }
-        this.setItem(val);
+        window.sessionStorage.setItem(STORAGE_KEY, JSON.stringify(val));
     }
 }

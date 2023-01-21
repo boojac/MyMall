@@ -1,6 +1,6 @@
 let baseURL;
 //根据不同环境输出url地址,当使用非代理时，这样做，
-//基于jsonp、crocs时使用
+//基于jsonp、cors时使用
 switch (process.env.NODE_ENV) {
     case 'dev':
         baseURL = 'http://dev-mall-pre.springboot.cn/api';
