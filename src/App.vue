@@ -7,6 +7,7 @@
 <script>
 // import axios from 'axios'
 // import jsonp from 'jsonp'
+import storage from './storage/index'
 
 export default {
   name: 'App',
@@ -19,7 +20,9 @@ export default {
     }
   },
   mounted(){
-
+    // storage.setItem('a',1);
+    // storage.setItem('user',{a:1});
+    storage.setItem('abc',{a:1}, 'user');
   },
 }
 </script>
