@@ -34,7 +34,12 @@
             <div class="chirldren"></div>
           </div>
         </div>
-        <div class="header-search"></div>
+        <div class="header-search">
+          <div class="wrapper">
+            <input type="text" name="keyword">
+            <a href="javascript:;"></a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -121,7 +126,7 @@ export default {
         }
         .header-menu {
           display: inline-block;
-          widows: 200px;
+          // widows: 200px;
           padding-left: 209px;
           .item-menu {
             display: inline-block;
@@ -129,11 +134,28 @@ export default {
             font-weight: bold;
             font-size: 16px;
             line-height: 112px;
+            margin-right: 20px;
             span {
               cursor: pointer;
             }    
             &:hover{
               
+            }
+          }
+        }
+        .header-search {
+          width: 319px;
+          .wrapper {
+            height: 50px;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            input {
+              border: none;
+              border-right: 1px solid #e0e0e0;
+              width: 264px;
+              height: 50px;
+              padding: 14px;
             }
           }
         }
