@@ -20,7 +20,20 @@
         <div class="header-logo">
           <a href="/#/index"></a>
         </div>
-        <div class="header-menu"></div>
+        <div class="header-menu">
+          <div class="item-menu">
+            <span>小米手机</span>
+            <div class="chirldren"></div>
+          </div>
+            <div class="item-menu">
+            <span>RedMi红米</span>
+            <div class="chirldren"></div>
+          </div>
+            <div class="item-menu">
+            <span>电视</span>
+            <div class="chirldren"></div>
+          </div>
+        </div>
         <div class="header-search"></div>
       </div>
     </div>
@@ -70,6 +83,10 @@ export default {
     }
     .nav-header{
       .container{
+        height: 112px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         .header-logo {
           display: inline-block;
           width: 55px;
@@ -78,10 +95,45 @@ export default {
             display: inline-block;
             width: 110px;
             height: 55px;
+            background-color: #FF6600;
             &:before {
               content: ' ';
               display: inline-block;
-              widows: ;
+              width: 55px;
+              height: 55px;
+              background: url('/imgs/mi-logo.png')no-repeat center;
+              background-size: 55px;
+              transition: margin .2s;
+            }
+            &:after {
+              content: ' ';
+              display: inline-block;
+              width: 55px;
+              height: 55px;
+              background: url('/imgs/mi-home.png')no-repeat center;
+              background-size: 55px;
+            }
+            &:hover:before {
+              margin-left: -55px;
+              transition: margin .2s;
+            }
+          }
+        }
+        .header-menu {
+          display: inline-block;
+          widows: 200px;
+          padding-left: 209px;
+          .item-menu {
+            display: inline-block;
+            color: #333333;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 112px;
+            span {
+              cursor: pointer;
+            }    
+            &:hover{
+              
             }
           }
         }
