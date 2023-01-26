@@ -23,7 +23,52 @@
         <div class="header-menu">
           <div class="item-menu">
             <span>小米手机</span>
-            <div class="chirldren"></div>
+            <div class="chirldren">
+              <ul>
+                <li class=product>
+                  <a href="" target="_blank">
+                    <div class="pro-img"></div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class=product>
+                  <a href="" target="_blank">
+                    <div class="pro-img"></div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class=product>
+                  <a href="" target="_blank">
+                    <div class="pro-img"></div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class=product>
+                  <a href="" target="_blank">
+                    <div class="pro-img"></div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class=product>
+                  <a href="" target="_blank">
+                    <div class="pro-img"></div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+                <li class=product>
+                  <a href="" target="_blank">
+                    <div class="pro-img"></div>
+                    <div class="pro-name">小米CC9</div>
+                    <div class="pro-price">1799元</div>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
             <div class="item-menu">
             <span>RedMi红米</span>
@@ -55,6 +100,7 @@ export default {
 <style lang="scss">
   @import './../assets/scss/base.scss';
   @import './../assets/scss/mixin.scss';
+  @import './../assets/scss/config.scss';
   .header{
     .nav-topbar{
       height: 39px;
@@ -90,6 +136,7 @@ export default {
     .nav-header{
       .container{
         height: 112px;
+        position: relative;
         @include flex();
         .header-logo {
           display: inline-block;
@@ -129,9 +176,62 @@ export default {
             span {
               cursor: pointer;
             }    
-            // &:hover{
-              
-            // }
+            &:hover{
+              color: $colorA;
+              .children {
+                position: absolute;
+                top: 112px;
+                left: 0;
+                border-top: 1px solid #e5e5e5;
+                width: 1226px;
+                box-shadow: 0px 7px 6px 0px rgba(0,0,0,0.11);
+                height: 220px;
+                .product {
+                  position: relative;
+                  float: left;
+                  width: 16.6%;
+                  height: 220px;
+                  font-size: 12px;
+                  line-height: 12px;
+                  text-align: center;
+                  z-index:10;
+
+                  a{
+                    display: inline-block;
+                  }
+                  img {
+                    width: auto;
+                    height: 111px;
+                    margin-top: 26px;
+                  }
+                  .pro-img {
+                    height: 137px;
+                  }
+                  .pro-name {
+                    font-weight: bold;
+                    margin-top: 19px;
+                    margin-bottom: 8px;
+                    color: $colorB;
+                  }
+                  .pro-price {
+                    color:$colorA;
+
+                  }
+                  &:before {
+                  content: ' ';
+                  position: absolute;
+                  top: 28px;
+                  right:0;
+                  border-left: 1px solid $colorF;
+                  height: 100px;
+                  width: 1px;
+                  }
+                  &:last-child:before {
+                    display: none;
+                  }
+                }
+              }
+            }
           }
         }
         .header-search {
