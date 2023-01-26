@@ -15,8 +15,15 @@
         </div>
       </div>
     </div>
-
-    <div class="nav-header"></div>
+    <div class="nav-header">
+      <div class="contariner">
+        <div class="header-logo">
+          <a href="/#/index"></a>
+        </div>
+        <div class="header-menu"></div>
+        <div class="header-search"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,6 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
+  @import './../assets/scss/base.scss';
   .header{
     .nav-topbar{
       height: 39px;
@@ -35,9 +43,6 @@ export default {
       color: #B0B0B0;
 
       .container{
-      width:1226px;
-      margin-left: auto;
-      margin-right:auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -61,6 +66,25 @@ export default {
         }
 
       }
+      }
+    }
+    .nav-header{
+      .container{
+        .header-logo {
+          display: inline-block;
+          width: 55px;
+          height: 55px;
+          a {
+            display: inline-block;
+            width: 110px;
+            height: 55px;
+            &:before {
+              content: ' ';
+              display: inline-block;
+              widows: ;
+            }
+          }
+        }
       }
     }
   }
