@@ -144,10 +144,10 @@ export default {
         this.axios.get('/products',{
           params:{
             categoryId:'100012',
-            
+            pageSize:6
           }
         }).then((res)=>{
-          if(res.list.length > 6) {
+          if(res.list.length >= 6) {
             this.phoneList = res.list.slice(0,6);
           }
         })
@@ -205,11 +205,11 @@ export default {
           display: inline-block;
           width: 55px;
           height: 55px;
+          background-color:#FF6600;
           a {
             display: inline-block;
-            width: 55px;
+            width: 110px;
             height: 55px;
-            background-color: #FF6600;
             &:before {
               content: ' ';
               @include bgImg(55px,55px,'../../public/imgs/mi-logo.png',55px);
@@ -258,6 +258,7 @@ export default {
                 box-shadow: 0px 7px 6px 0px rgba(0,0,0,0.11);
                 height: 220px;
                 transition: height .5s;
+                background-color: #ffffff;
                 .product {
                   position: relative;
                   float: left;

@@ -5,9 +5,9 @@
       <p>小米商城</p>
     </div>
     <div class="footer-link">
-      <a href="">关于此商城</a> <span>|</span>
-      <a href="">About Store</a> <span>|</span>
-      <a href="">使用必读</a> <span>|</span>
+      <a href="">关于此商城</a> <span> | </span>
+      <a href="">About Store</a> <span> | </span>
+      <a href="">使用必读</a> <span> | </span>
       <a href="">帮助中心</a>
     </div>
     <div class="copyright">@2023 <span class="doname">boojac;</span> Copyright</div>
