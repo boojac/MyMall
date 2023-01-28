@@ -246,7 +246,6 @@ export default {
                 opacity: 1;
               }
             }
-              
               .children {
                 position: absolute;
                 top: 112px;
