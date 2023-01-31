@@ -76,14 +76,14 @@
             <div class="list-box">
               <div class="list" v-for="(arr,i) in phoneList" v-bind:key="i">
                 <div class="item" v-for="(item, j) in arr" v-bind:key="j">
-                  <span>新品</span>
+                  <span v-bind:class="{'new-pro':j%2==0}">新品</span>
                   <div class="item-img">
-                    <img src="" alt="">
+                    <img v-bind:src="item.mainImage" alt="">
                   </div>
                   <div class="item-info">
-                    <h2>小米9</h2>
-                    <p>骁龙855，索尼4800万超广角微距</p>
-                    <p class="price">2999元</p>
+                    <h2>{{item.name}}</h2>
+                    <p>{{item.subtitle}}</p>
+                    <p class="price">{{item.price}}元</p>
                   </div>
                 </div>
               </div>
@@ -205,9 +205,10 @@ export default {
       this.axios.get('/products',{
         params:{
           categoryId:100012,
-          pageSize:8
+          pageSize:14
         }
       }).then((res)=>{
+        res.list = res.list.slice(6,14);
         this.phoneList = [res.list.slice(0, 4),res.list.slice(4,8)]
       })
     }
@@ -345,6 +346,7 @@ export default {
                 display: inline-block;
                 width: 67px;
                 height: 24px;
+                font-size: 14px;
                 line-height: 24px;
                 color: #fff;
                 &.new-pro{
@@ -359,14 +361,16 @@ export default {
               .item-img {
                 img {
                   height: 195px;
+                  width: 100%;
                 }
               }
               .item-info {
-                h3{
+                h2{
                   font-size: 14px;
                   color: #333333;
                   line-height: 14px;
                   font-weight: bold;
+                  margin: auto;
                 }
                 p{
                   color: #999999;
