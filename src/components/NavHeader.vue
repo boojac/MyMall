@@ -50,7 +50,7 @@
                 <li class=product>
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'../../public/imgs/nav-img/nav-3-1.jpg'" alt="">
+                      <img src="../../public/imgs/nav-img/nav-3-1.jpg" alt="">
                     </div>
                     <div class="pro-name">小米壁画电视</div>
                     <div class="pro-price">6999元</div>
@@ -59,7 +59,7 @@
                 <li class=product>
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'../../public/imgs/nav-img/nav-3-2.jpg'" alt="">
+                      <img src="../../public/imgs/nav-img/nav-3-2.jpg" alt="">
                     </div>
                     <div class="pro-name">小米全面电视</div>
                     <div class="pro-price">1999元</div>
@@ -68,7 +68,7 @@
                 <li class=product>
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'../../public/imgs/nav-img/nav-3-3.png'" alt="">
+                      <img src="../../public/imgs/nav-img/nav-3-3.png" alt="">
                     </div>
                     <div class="pro-name">小米电视4A</div>
                     <div class="pro-price">999元</div>
@@ -77,7 +77,7 @@
                 <li class=product>
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'../../public/imgs/nav-img/nav-3-4.jpg'" alt="">
+                      <img src="../../public/imgs/nav-img/nav-3-4.jpg" alt="">
                     </div>
                     <div class="pro-name">小米电视4A</div>
                     <div class="pro-price">1799元</div>
@@ -86,7 +86,7 @@
                 <li class=product>
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'../../public/imgs/nav-img/nav-3-5.jpg'" alt="">
+                      <img src="../../public/imgs/nav-img/nav-3-5.jpg" alt="">
                     </div>
                     <div class="pro-name">小米电视4A</div>
                     <div class="pro-price">1799元</div>
@@ -95,7 +95,7 @@
                 <li class=product>
                   <a href="" target="_blank">
                     <div class="pro-img">
-                      <img v-lazy="'../../public/imgs/nav-img/nav-3-6.png'" alt="">
+                      <img src="../../public/imgs/nav-img/nav-3-6.png" alt="">
 
                     </div>
                     <div class="pro-name">小米电视</div>
@@ -183,6 +183,7 @@ export default {
         background-color: #FF6600;
         text-align: center;
         color: #ffffff;
+        margin-right: 0;
         .icon-cart{
           @include bgImg(16px, 12px, '../../public/imgs/icon-cart-checked.png');
           // display:inline-block;
