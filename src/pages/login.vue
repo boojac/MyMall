@@ -59,7 +59,7 @@ export default {
                 username,
                 password
             }).then((res)=>{
-                // this.res = res;
+                this.res = res;
                 this.$cookie.set('userId',res.id,{expires:'1M'});
                 // to-do 保存用户名
                 this.$router.push('/index');
