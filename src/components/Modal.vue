@@ -45,7 +45,7 @@ export default {
             type:String,
             default:'取消'
         },
-        showModal:true
+        showModal:Boolean
     }
 
 }
