@@ -44,14 +44,15 @@ export default {
   },
   methods:{
     getUser(){
-      this.axios.get('/user').then(()=>{
+      this.axios.get('/user').then((res)=>{
         // todo 保存到vuex里
+        this.$store.dispatch('saveUserName',res.username);
 
       })
     },
     getCartCount(){
       this.axios.get('/carts/products/sum').then(()=>{
-
+        this.$store.dispatch('saveCartCount',res);
       })
     }
   }
