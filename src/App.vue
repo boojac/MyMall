@@ -20,6 +20,9 @@ export default {
     }
   },
   mounted(){
+    this.getUser();
+    this.getCartCount();
+  },
     // storage.setItem('a',1);
     // storage.setItem('user',{a:1});
     // storage.setItem('abc',{a:1}, 'user');
@@ -39,9 +42,7 @@ export default {
   //     this.res = res;
   //  });
 
-    this.getUser();
-    this.getCartCount();
-  },
+
   methods:{
     getUser(){
       this.axios.get('/user').then((res)=>{
@@ -51,7 +52,7 @@ export default {
       })
     },
     getCartCount(){
-      this.axios.get('/carts/products/sum').then(()=>{
+      this.axios.get('/carts/products/sum').then((res)=>{
         this.$store.dispatch('saveCartCount',res);
       })
     }

@@ -1,13 +1,30 @@
 <template>
-  <div>product</div>
+  <div>
+    <product-param>
+      <template v-slot:buy>
+        <button class="btn">
+          立即购买
+        </button>
+      </template>
+    </product-param>
+  </div>
 </template>
 
 <script>
+import ProductParam from './../components/ProductParam.vue'
 export default {
-    name:'product'
+    name:'product',
+    components:{
+      ProductParam,
+
+    }
 }
 </script>
 
-<style>
-
+<style lang="scss">
+  .product{
+    button{
+      margin-left: 10px;
+    }
+  }
 </style>
