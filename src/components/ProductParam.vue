@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar">
+  <div class="nav-bar" :class="{'is_fixed':is_fixed}">
     <div class="container">
         <div class="pro-title">
             小米8
@@ -16,7 +16,27 @@
 
 <script>
 export default {
-    name:'nav-bar'
+    name:'nav-bar',
+    data(){
+        return{
+            isFixed:false
+        }
+    },
+    mouned() {
+        window.addEventListener('scroll',this.initHeight)
+    },
+    //还有兼容性,偏移量
+    methods:{
+        initHeight() {
+            let scrollTop = window.page || document.documentElement.scrollTop || document.body.scrollTop;
+            this.isFixed = scrollTop > 152? true:false;
+
+        }
+    },
+    destroyed() {
+        window.removeEventListener('scroll',this.initHeight,false)
+        //冒泡false。
+    }
 }
 </script>
 
@@ -26,7 +46,14 @@ export default {
     .nav-bar{
         height: 70px;
         line-height: 70px;
-        border: 1px solid $colorH;
+        border-top: 1px solid $colorH;
+        &.is_fixed{
+            position: fixed;
+            top:0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 5px 5px #cccccc;
+        }
         .container{
             @include flex();
             .pro-title{
