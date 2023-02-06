@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-bar" :class="{'is_fixed':is_fixed}">
+  <div class="nav-bar" :class="{'is_fixed':isFixed}">
     <div class="container">
         <div class="pro-title">
             小米8
@@ -22,7 +22,7 @@ export default {
             isFixed:false
         }
     },
-    mouned() {
+    mounted() {
         window.addEventListener('scroll',this.initHeight)
     },
     //还有兼容性,偏移量
