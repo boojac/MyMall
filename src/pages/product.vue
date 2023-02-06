@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="product">
     <product-param>
       <template v-slot:buy>
         <button class="btn">
@@ -29,11 +29,11 @@
       <div class="item-bg-3"></div>
       <div class="item-swiper">
         <swiper :options="swiperOption">
-          <swiper-slide><img src="/imgs/product/gallery-2.png" alt=""></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-3.png" alt=""></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-4.png" alt=""></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-5.png" alt=""></swiper-slide>
-          <swiper-slide><img src="/imgs/product/gallery-6.png" alt=""></swiper-slide>
+          <swiper-slide><img src="../../public/imgs/product/gallery-2.png" alt=""></swiper-slide>
+          <swiper-slide><img src="../../public/imgs/product/gallery-3.png" alt=""></swiper-slide>
+          <swiper-slide><img src="../../public/imgs/product/gallery-4.png" alt=""></swiper-slide>
+          <swiper-slide><img src="../../public/imgs/product/gallery-5.jpg" alt=""></swiper-slide>
+          <swiper-slide><img src="../../public/imgs/product/gallery-6.jpg" alt=""></swiper-slide>
           <div class="swiper-pagination" slot="pagination"></div>
         </swiper>
         <p class="desc">小米8 AI变焦双摄拍摄</p>
@@ -46,7 +46,7 @@
           <div class="overlay"></div>
           <div class="video">
             <span class="icon-close"></span>
-            <video src="/imgs/product/video.mp4"></video>
+            <video src="../../public/imgs/product/video.mp4" muted autoplay controls="controls"></video>
           </div>
         </div>
       </div>
@@ -55,14 +55,15 @@
 </template>
 
 <script>
-import { swiper, swiperSlide} from 'vue-awesome-swiper'
+import { Swiper, SwiperSlide} from 'vue-awesome-swiper'
 import ProductParam from './../components/ProductParam.vue'
+import 'swiper/css/swiper.css'
 export default {
     name:'product',
     components:{
       ProductParam,
-      swiper,
-      swiperSlide,
+      Swiper,
+      SwiperSlide,
     },
     data(){
       return {
@@ -86,9 +87,10 @@ export default {
   .product{
     .content{
       .item-bg{
-        background: url('/imgs/product/product-bg-1.png') no-repeat center;
+        background:url('../../public/imgs/product/product-bg-1.png') no-repeat center;
         height: 718px;
         text-align: center;
+        
         h2{
           font-size:80px;
           padding-top: 55px;
@@ -118,12 +120,12 @@ export default {
         }
       }
       .item-bg-2{
-        background: url(/imgs/product/product-bg-2.png) no-repeat center;
+        background: url('../../public/imgs/product/product-bg-2.png') no-repeat center;
         height: 480px;
         background-size: 1226px 397px;
       }
       .item-bg-3{
-        background: url(/imgs/product/product-bg-3.png) no-repeat center;
+        background: url('../../public/imgs/product/product-bg-3.png') no-repeat center;
         height: 638px;
         background-size: cover;
       }
@@ -154,7 +156,7 @@ export default {
           margin-bottom: 58px;
         }
         .video-bg{
-          background: url('/imgs/product/gallery-1.png') no-repeat center;
+          background: url('../../public/imgs/product/gallery-1.png') no-repeat center;
           background-size: cover;
           width: 1226px;
           height: 540px;
@@ -168,7 +170,7 @@ export default {
             opacity: .4;
             z-index: 10;
           }
-          .vedio{
+          .video{
             position: fixed;
             top: 50%;
             left: 50%;
@@ -180,7 +182,7 @@ export default {
               position:absolute;
               top: 20px;
               right: 20px;
-              @include bgImg(20px,20px,'/imgs/icon-close.png');
+              @include bgImg(20px,20px,'../../public/imgs/icon-close.png');
               cursor: pointer;
               z-index: 11;
             }
