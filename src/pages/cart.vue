@@ -45,7 +45,7 @@
           </div>
           <div class="total fr">
             合计：<span>{{cartTotalPrice}}</span>元
-            <a href="javascript:;" class="btn">去结算</a>
+            <a href="javascript:;" class="btn" @click="order">去结算</a>
           </div>
         </div>
       </div>
@@ -124,8 +124,17 @@ export default {
         this.axios.delete(`/carts/${item.productId}`).then((res)=>{
             this.renderData(res);
         });
-      }
+      },
+      order(){
+        let isCheck = this.list.every(item=>!item.productSelected);
+        //一旦都没有选择，返回一个布尔值
+        if(isCheck){
+            alert('请选择一件商品');
+        }else{
+            this.$router.push('/order/confirm');
+        }
 
+      },
     }
 }
 </script>
