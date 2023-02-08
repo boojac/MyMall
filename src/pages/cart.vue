@@ -28,13 +28,13 @@
               <div class="item-price">{{item.productPrice}}</div>
               <div class="item-num">
                 <div class="num-box">
-                  <a href="javascript:;">-</a>
+                  <a href="javascript:;" @click="updateCart(item,'-')">-</a>
                   <span>{{item.quantity}}</span>
-                  <a href="javascript:;">+</a>
+                  <a href="javascript:;" @click="updateCart(item,'+')">+</a>
                 </div>
               </div>
               <div class="item-total">{{item.productTotalPrice}}</div>
-              <div class="item-del"></div>
+              <div class="item-del" @click="delProduct(item)"></div>
             </li>
           </ul>
         </div>
@@ -83,6 +83,31 @@ export default {
             this.renderData(res);
         })
       },
+      updateCart(item,type){
+        let quantity = item.quantity;
+        let selected = item.productSelected;
+        if(type == '-'){
+            if(quantity == 1) {
+                alert('商品至少保留一件');
+                return;
+            }
+            --quantity;
+        }else if(type == '+'){
+            if(quantity >= item.productStock){
+                alert('购买商品数量不能超过库存数量');
+                return;
+            }
+            ++quantity;
+        }else{
+            selected = !item.productSelected;
+        }
+        this.axios.put(`/carts/${item.productId}`,{
+            quantity,
+            selected
+        }).then((res)=>{
+            this.renderData(res);
+        })
+      },
       toggleAll(){
         let url = this.allChecked?'/carts/unSelectAll':'/carts/selectAll';
         this.axios.put(url).then((res)=>{
@@ -95,6 +120,11 @@ export default {
         this.cartTotalPrice = res.cartTotalPrice;
         this.checkedNum = this.list.filter(item=>item.productSelected).length;
       },
+      delProduct(item){
+        this.axios.delete(`/carts/${item.productId}`).then((res)=>{
+            this.renderData(res);
+        });
+      }
 
     }
 }
