@@ -9,7 +9,7 @@
       <div class="container">
         <div class="cart-box">
           <ul class="cart-item-head">
-            <li class="col-1"><span class="checkbox" v-bind:class="{'checked':allChecked}" @click="toggleAll"></span>全选</li>
+            <li class="col-1"><span class="checkbox" v-bind:class="{'checked':allChecked}" ></span>全选</li>
             <li class="col-3">商品名称</li>
             <li class="col-1">单价</li>
             <li class="col-2">数量</li>
@@ -58,11 +58,34 @@
 <script>
 import OrderHeader from './../components/OrderHeader'
 import NavFooter from './../components/NavFooter.vue'
+import ServiceBar from './../components/ServiceBar.vue'
 export default {
     name:'index',
     components:{
         OrderHeader,
-        NavFooter
+        ServiceBar,
+        NavFooter,
+    },
+    data(){
+        return{
+            list:[],//商品列表
+            allChecked:false,//是否全选
+            cartTotalPrice:0,//商品总金额
+            checkedNum:0,//选中商品数量
+        }
+    },
+    mounted(){
+        this.getCartList();
+    },
+    methods:{
+      getCartList(){
+        this.axios.get('/carts').then((res)=>{
+            this.list = res.cartProductVoList || [];
+            this.allChecked = res.selectedAll;
+            this.cartTotalPrice = res.cartTotalPrice;
+            this.checkedNum = this.list.filter(item=>item.productSelected).length;
+        })
+      }  
     }
 }
 </script>
@@ -87,7 +110,7 @@ export default {
           margin-right: 17px;
           cursor:pointer;
           &.checked{
-            background:url('/imgs/icon-gou.png') #FF6600 no-repeat center;
+            background:url('../../public/imgs/icon-gou.png') #FF6600 no-repeat center;
             background-size:16px 12px;
             border:none;
           }
@@ -164,7 +187,7 @@ export default {
               flex:1;
               width:14px;
               height:12px;
-              background:url('/imgs/icon-close.png') no-repeat center;
+              background:url('../../public/imgs/icon-close.png') no-repeat center;
               background-size:contain;
               cursor:pointer;
             }
